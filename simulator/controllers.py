@@ -1,5 +1,5 @@
 from collections import OrderedDict
-from pnc.draco_pnc.interface import DracoManipulationInterface
+from pnc.h1_pnc.interface import H1ManipulationInterface
 import numpy as np
 import copy
 from util import geom
@@ -75,7 +75,7 @@ class H1Controller(object):
     def __init__(self, config, path_to_robot_model) -> None:
         
         # Construct Interface
-        self._interface = DracoManipulationInterface(path_to_robot_model, config)
+        self._interface = H1ManipulationInterface(path_to_robot_model, config)
         self._robot_target = {'joint_pos': OrderedDict(),
                               'joint_vel': OrderedDict(),
                               'joint_trq': OrderedDict(),

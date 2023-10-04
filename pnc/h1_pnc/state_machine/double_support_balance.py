@@ -1,7 +1,7 @@
-from pnc.draco_pnc.state_machine import LocomanipulationState
+from pnc.h1_pnc.state_machine import LocomanipulationState
 from pnc.state_machine import StateMachine
 from pnc.dcm import Footstep
-from pnc.draco_pnc.state_provider import DracoManipulationStateProvider
+from pnc.h1_pnc.state_provider import H1ManipulationStateProvider
 
 
 class DoubleSupportBalance(StateMachine):
@@ -10,7 +10,7 @@ class DoubleSupportBalance(StateMachine):
         self._trajectory_managers = tm
         self._hierarchy_managers = hm
         self._force_managers = fm
-        self._sp = DracoManipulationStateProvider()
+        self._sp = H1ManipulationStateProvider()
         self._start_time = 0.
         self._walking_trigger = False
         self._swaying_trigger = False

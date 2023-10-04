@@ -2,9 +2,9 @@ import numpy as np
 from scipy.spatial.transform import Rotation as R
 from scipy.spatial.transform import Slerp
 
-from pnc.draco_pnc.state_machine import LocomanipulationState
+from pnc.h1_pnc.state_machine import LocomanipulationState
 from pnc.state_machine import StateMachine
-from pnc.draco_pnc.state_provider import DracoManipulationStateProvider
+from pnc.h1_pnc.state_provider import H1ManipulationStateProvider
 
 
 class DoubleSupportStand(StateMachine):
@@ -17,7 +17,7 @@ class DoubleSupportStand(StateMachine):
         self._rf_z_max_time = 0.
         self._com_height_des = 0.
         self._start_time = 0.
-        self._sp = DracoManipulationStateProvider()
+        self._sp = H1ManipulationStateProvider()
         self._lhand_iso = np.zeros((4, 4))
         self._rhand_iso = np.zeros((4, 4))
 

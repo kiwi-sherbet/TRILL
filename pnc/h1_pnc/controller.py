@@ -6,7 +6,7 @@ from pnc.wbc.ihwbc.ihwbc import IHWBC
 from pnc.wbc.ihwbc.joint_integrator import JointIntegrator
 
 
-class DracoManipulationController(object):
+class H1ManipulationController(object):
     def __init__(self, tci_container, robot, config):
         self._tci_container = tci_container
         self._robot = robot

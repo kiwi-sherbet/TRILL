@@ -1,14 +1,14 @@
 import numpy as np
 
-# from pnc.draco_pnc.rolling_joint_constraint import DracoManipulationRollingJointConstraint
+# from pnc.h1_pnc.rolling_joint_constraint import H1ManipulationRollingJointConstraint
 from pnc.wbc.tci_container import TCIContainer
 from pnc.wbc.basic_task import BasicTask
 from pnc.wbc.basic_contact import SurfaceContact
 
 
-class DracoManipulationTCIContainer(TCIContainer):
+class H1ManipulationTCIContainer(TCIContainer):
     def __init__(self, robot, config):
-        super(DracoManipulationTCIContainer, self).__init__(robot)
+        super(H1ManipulationTCIContainer, self).__init__(robot)
 
         self._robot = robot
         self._config = config
@@ -115,7 +115,7 @@ class DracoManipulationTCIContainer(TCIContainer):
         # ======================================================================
         # Initialize Internal Constraint
         # ======================================================================
-        # self._rolling_joint_constraint = DracoManipulationRollingJointConstraint(
+        # self._rolling_joint_constraint = H1ManipulationRollingJointConstraint(
         #     robot)
         # self._internal_constraint_list = [self._rolling_joint_constraint]
         self._internal_constraint_list = []

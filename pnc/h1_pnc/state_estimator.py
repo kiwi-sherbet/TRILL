@@ -1,14 +1,14 @@
 import numpy as np
 
-from pnc.draco_pnc.state_provider import DracoManipulationStateProvider
+from pnc.h1_pnc.state_provider import H1ManipulationStateProvider
 
 
-class DracoManipulationStateEstimator(object):
+class H1ManipulationStateEstimator(object):
     def __init__(self, robot, config):
-        super(DracoManipulationStateEstimator, self).__init__()
+        super(H1ManipulationStateEstimator, self).__init__()
         self._robot = robot
         self._config = config
-        self._sp = DracoManipulationStateProvider(self._robot)
+        self._sp = H1ManipulationStateProvider(self._robot)
 
     def initialize(self, sensor_data):
         self._sp.nominal_joint_pos = sensor_data["joint_pos"]

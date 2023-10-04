@@ -1,7 +1,7 @@
-from pnc.draco_pnc.state_machine import LocomanipulationState
+from pnc.h1_pnc.state_machine import LocomanipulationState
 from pnc.dcm import Footstep
 from pnc.state_machine import StateMachine
-from pnc.draco_pnc.state_provider import DracoManipulationStateProvider
+from pnc.h1_pnc.state_provider import H1ManipulationStateProvider
 
 
 class SingleSupportSwing(StateMachine):
@@ -9,7 +9,7 @@ class SingleSupportSwing(StateMachine):
         super(SingleSupportSwing, self).__init__(id, robot)
         self._trajectory_managers = tm
         self._leg_side = leg_side
-        self._sp = DracoManipulationStateProvider()
+        self._sp = H1ManipulationStateProvider()
         self._start_time = 0.
 
     def first_visit(self):

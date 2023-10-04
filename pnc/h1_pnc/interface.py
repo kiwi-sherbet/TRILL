@@ -6,30 +6,30 @@ sys.path.append(cwd)
 import copy
 
 from pnc.interface import Interface
-from pnc.draco_pnc.interrupt_logic import DracoManipulationInterruptLogic
-from pnc.draco_pnc.state_provider import DracoManipulationStateProvider
-from pnc.draco_pnc.state_estimator import DracoManipulationStateEstimator
-from pnc.draco_pnc.control_architecture import DracoManipulationControlArchitecture
+from pnc.h1_pnc.interrupt_logic import H1ManipulationInterruptLogic
+from pnc.h1_pnc.state_provider import H1ManipulationStateProvider
+from pnc.h1_pnc.state_estimator import H1ManipulationStateEstimator
+from pnc.h1_pnc.control_architecture import H1ManipulationControlArchitecture
 from pnc.data_saver import DataSaver
 from pnc.robot_system import PinocchioRobotSystem
 
 
-class DracoManipulationInterface(Interface):
+class H1ManipulationInterface(Interface):
     def __init__(self, path_to_model, config):
-        super(DracoManipulationInterface, self).__init__()
+        super(H1ManipulationInterface, self).__init__()
 
         self._robot = PinocchioRobotSystem(
             path_to_model + "/h1.urdf",
             path_to_model, False, False)
 
         self._config = config
-        self._sp = DracoManipulationStateProvider(self._robot)
+        self._sp = H1ManipulationStateProvider(self._robot)
         self._sp.initialize()
-        self._se = DracoManipulationStateEstimator(
+        self._se = H1ManipulationStateEstimator(
             self._robot, self._config)
-        self._control_architecture = DracoManipulationControlArchitecture(
+        self._control_architecture = H1ManipulationControlArchitecture(
             self._robot, self._config)
-        self._interrupt_logic = DracoManipulationInterruptLogic(
+        self._interrupt_logic = H1ManipulationInterruptLogic(
             self._control_architecture)
         if self._config['Simulation']['Save Data']:
             self._data_saver = DataSaver()

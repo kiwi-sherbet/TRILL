@@ -3,15 +3,15 @@ import numpy as np
 from pnc.control_architecture import ControlArchitecture
 from pnc.dcm import *
 from pnc.wbc.manager import *
-from .tci_container import DracoManipulationTCIContainer
-from .controller import DracoManipulationController
+from .tci_container import H1ManipulationTCIContainer
+from .controller import H1ManipulationController
 from .state_machine import *
-from .state_provider import DracoManipulationStateProvider
+from .state_provider import H1ManipulationStateProvider
 
 
-class DracoManipulationControlArchitecture(ControlArchitecture):
+class H1ManipulationControlArchitecture(ControlArchitecture):
     def __init__(self, robot, config):
-        super(DracoManipulationControlArchitecture, self).__init__(robot)
+        super(H1ManipulationControlArchitecture, self).__init__(robot)
 
         self._robot = robot
         self._config = config
@@ -22,12 +22,12 @@ class DracoManipulationControlArchitecture(ControlArchitecture):
         # ======================================================================
         # Initialize TCIContainer
         # ======================================================================
-        self._tci_container = DracoManipulationTCIContainer(self._robot, self._config)
+        self._tci_container = H1ManipulationTCIContainer(self._robot, self._config)
 
         # ======================================================================
         # Initialize Controller
         # ======================================================================
-        self._draco_manipulation_controller = DracoManipulationController(
+        self._h1_manipulation_controller = H1ManipulationController(
             self._tci_container, self._robot, self._config)
 
         # ======================================================================
@@ -234,7 +234,7 @@ class DracoManipulationControlArchitecture(ControlArchitecture):
         self._b_state_first_visit = True
         self._b_manipulation_first_visit = True
 
-        self._sp = DracoManipulationStateProvider()
+        self._sp = H1ManipulationStateProvider()
 
     def get_command(self):
         if self._b_state_first_visit:
@@ -256,7 +256,7 @@ class DracoManipulationControlArchitecture(ControlArchitecture):
             self._sp.nominal_joint_pos)
 
         # Get Whole Body Control Commands
-        command = self._draco_manipulation_controller.get_command()
+        command = self._h1_manipulation_controller.get_command()
 
         if self._state_machine[self._state].end_of_state():
             self._state_machine[self._state].last_visit()

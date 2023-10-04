@@ -1,8 +1,8 @@
 import numpy as np
 
 from pnc.state_machine import StateMachine
-from pnc.draco_pnc.state_provider import DracoManipulationStateProvider
-from pnc.draco_pnc.state_machine import LocomanipulationState
+from pnc.h1_pnc.state_provider import H1ManipulationStateProvider
+from pnc.h1_pnc.state_machine import LocomanipulationState
 from util import geom
 
 
@@ -11,7 +11,7 @@ class Manipulation(StateMachine):
         super().__init__(id, robot)
         self._trajectory_managers = tm
         self._hierarchy_managers = hm
-        self._sp = DracoManipulationStateProvider()
+        self._sp = H1ManipulationStateProvider()
         self._start_time = 0.
         self._moving_duration = 0.0
         self._trans_duration = 0.
