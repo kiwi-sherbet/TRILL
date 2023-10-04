@@ -47,8 +47,8 @@ def main(gui, env_type, cam_name='upview', subtask=0, save_video=True):
 
     init_time = env.cur_time
 
-    right_pos = np.array([0.22,-0.25,0.1 ])
-    left_pos = np.array([0.22, 0.25,0.1 ])
+    right_pos = np.array([0.1, -0.35, 0.1 ])
+    left_pos =  np.array([0.1,  0.35, 0.1 ])
     target_pos = np.array([0.22,-0.35, -0.1 ])
 
     while not done:
@@ -64,6 +64,14 @@ def main(gui, env_type, cam_name='upview', subtask=0, save_video=True):
         lh_target_pos = left_pos
         lh_input = geom.euler_to_rot(np.array([0, 0, 0]))
         rh_input = geom.euler_to_rot(np.array([0, 0, 0]))
+
+        if env.cur_time < 24.0 + init_time:
+            phase = (env.cur_time-init_time)/12.0
+            lh_target_pos = left_pos + 0.4*np.sin(2*np.pi*phase)*np.array([-1.0, 0.0, -0])
+            rh_target_pos = right_pos + 0.4*np.sin(2*np.pi*phase)*np.array([-1.0, 0.0, -0])
+        else:
+            lh_target_pos = left_pos + 0.4*np.array([-1.0, 0.0, -0])
+            rh_target_pos = right_pos + 0.4*np.array([-1.0, 0.0, -0])
 
         rh_target_rot = np.dot(rh_input, RIGHTFORWARD_GRIPPER)
         lh_target_rot = np.dot(lh_input, RIGHTFORWARD_GRIPPER)

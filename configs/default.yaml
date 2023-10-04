@@ -9,7 +9,7 @@ Simulation:
     Body Pos:
       - 0.0
       - 0.0
-      - 0.82
+      - 0.8
     Body Quat:
       - 0.0
       - 0.0
@@ -138,17 +138,17 @@ Whole-Body Contol:
 
   # Task Hierarchy Weights
   Hierarchy:
-    COM: 80.0
-    CAM: 2.0
+    COM: 100.0
+    CAM: 0.0
     # CAM: 0.0
     Torso: 200.0
-    Upper Body: 20.0
+    Upper Body: 1.0
     Hand Pos Min: 2.0e-0
     Hand Pos Max: 10.0e-0
-    Hand Quat Min: 2.0e-0
-    Hand Quat Max: 10.0e-0
-    Contact Foot: 60.0
-    Swing Foot: 40.0
+    Hand Quat Min: 0.0e-0
+    Hand Quat Max: 0.0e-0
+    Contact Foot: 40.0
+    Swing Foot: 30.0
 
   # Task Gains
   kp:
@@ -197,12 +197,12 @@ Whole-Body Contol:
       - 20.0
       - 20.0
     CAM:
-      # - 0.0
-      # - 0.0
-      # - 0.0
-      - 10.0
-      - 10.0
-      - 10.0
+      - 0.0
+      - 0.0
+      - 0.0
+      # - 10.0
+      # - 10.0
+      # - 10.0
     Torso:
       - 10.0
       - 10.0
@@ -232,7 +232,7 @@ Whole-Body Contol:
     Foot Quat:
       - 30.0
       - 30.0
-      - 0.0
+      - 30.0
 
   # Regularization terms
   Reguralization:
@@ -264,7 +264,7 @@ Walking:
 
   ## !! This will be overwritten in main !! ##
   Initial Motion:
-    COM Height: 0.8  # m
+    COM Height: 0.75  # m
     Swing Height: 0.04  # m
     Footwidth: 0.28
     Forward Step: 0.2
