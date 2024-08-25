@@ -6,18 +6,18 @@ from util import geom
 from .base import BaseEnv
 
 MEAN_INIT_POS = {
-    0: np.array([-0.5, 0.0, 0.743]),
+    0: np.array([0.0, 0.1, 0.743]),
     1: np.array([0.22, 0.05, 0.743]),
     2: np.array([0.22, 0.05, 0.743]),
 }
 STD_INIT_POS = {
-    0: np.array([0.1, 0.2, 0.0]),
+    0: np.array([0.02, 0.05, 0.0]),
     1: np.array([0.01, 0.02, 0.0]),
     2: np.array([0.01, 0.02, 0.0]),
 }
-MEAN_INIT_YAW = {0: 0.0, 1: 0.05, 2: 0.05}
-STD_INIT_YAW = {0: 0.2, 1: 0.07, 2: 0.07}
-MEAN_INIT_HINGE = {0: 0.0, 1: 0.00, 2: 0.1}
+MEAN_INIT_YAW = {0: 0.0, 1: 0.0, 2: 0.005}
+STD_INIT_YAW = {0: 0.2, 1: 0.07, 2: 0.005}
+MEAN_INIT_HINGE = {0: 0.0, 1: 0.00, 2: 0.025}
 STD_INIT_HINGE = {0: 0.0, 1: 0.00, 2: 0.025}
 
 

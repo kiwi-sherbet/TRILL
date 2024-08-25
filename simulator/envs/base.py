@@ -226,6 +226,9 @@ class BaseEnv:
     def _render(self):
         if self.renderer == None:
             return
+        elif type(self.renderer)==list:
+            for renderer in self.renderer:
+                renderer.render()
         else:
             return self.renderer.render()
 

@@ -19,6 +19,7 @@ class CV2Renderer:
         cam_name,
         width=480,
         height=360,
+        window_name='test',
         depth=False,
         segmentation=False,
         save_path=None,
@@ -33,6 +34,7 @@ class CV2Renderer:
         self._segmentation = segmentation
         self._cam_id = sim.model.camera_name2id(cam_name)
         self._gui = gui
+        self._window_name = window_name
 
         if save_path is not None:
             self._save_file = cv2.VideoWriter(
@@ -59,7 +61,7 @@ class CV2Renderer:
             self._save_file.write(img[:, ::-1, ::-1])
         ###
         if self._gui:
-            cv2.imshow("test", img[:, ::-1, ::-1])
+            cv2.imshow(self._window_name, img[:, ::-1, ::-1])
             cv2.waitKey(1)
         return img
 

@@ -19,3 +19,6 @@ h5py
 torch==2.1.2
 torchvision==0.16.2
 torchaudio
+pynput
+pyrealsense==2.53.1.4623
+hidapi
